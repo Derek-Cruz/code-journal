@@ -16,21 +16,24 @@
 </head>
 <body>
   <header>
+    <h3 class="heading3">Code Journal</h3>
   </header>
-  <main>
-    <div data-view="entry-form">
+  <main class="container">
+    <h1>New Entry</h1>
+    <div class="row" data-view="entry-form">
+      <img class="size" src="../code-journal/images/placeholder-image-square.jpg" alt="placeholder image">
       <form>
         <div>
           <label for="title">Title</label><br />
-          <input type="text" id="title" name="title">
+          <input class="inputstyle" type="text" id="title" name="title">
         </div>
         <div>
           <label for="photo">Photo URL</label><br />
-          <input type="url" id="photo" name="photo">
+          <input class="inputstyle" type="url" id="photo" name="photo">
         </div>
         <div>
           <label for="notes">Notes</label><br />
-          <textarea name="notes" id="notes"></textarea>
+          <textarea class="textarea" name="notes" id="notes"></textarea>
         </div>
         <div>
           <input type="submit" name="submit" value="SAVE">
