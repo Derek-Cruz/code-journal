@@ -18,25 +18,33 @@
   <header>
     <h3 class="heading3">Code Journal</h3>
   </header>
-  <main class="container">
-    <h1>New Entry</h1>
-    <div class="row" data-view="entry-form">
-      <img class="size" src="../code-journal/images/placeholder-image-square.jpg" alt="placeholder image">
+  <main>
+    <div class="container" data-view="entry-form">
+      <h1>New Entry</h1>
       <form>
-        <div>
-          <label for="title">Title</label><br />
-          <input class="inputstyle" type="text" id="title" name="title">
+        <div class="row">
+          <div class="column-half">
+            <img class="size" src="../code-journal/images/placeholder-image-square.jpg" alt="placeholder image">
+          </div>
+          <div class="column-half">
+            <div>
+              <label for="title">Title</label><br />
+              <input class="inputstyle" type="text" id="title" name="title">
+            </div>
+            <div>
+              <label for="photo">Photo URL</label><br />
+              <input class="inputstyle" type="url" id="photo" name="photo">
+            </div>
+          </div>
         </div>
-        <div>
-          <label for="photo">Photo URL</label><br />
-          <input class="inputstyle" type="url" id="photo" name="photo">
-        </div>
-        <div>
-          <label for="notes">Notes</label><br />
-          <textarea class="textarea" name="notes" id="notes"></textarea>
-        </div>
-        <div>
-          <input type="submit" name="submit" value="SAVE">
+        <div class="row">
+          <div class="column-full">
+            <label for="notes">Notes</label><br />
+            <textarea class="textarea" name="notes" id="notes"></textarea>
+          </div>
+          <div>
+            <input type="submit" name="submit" value="SAVE">
+          </div>
         </div>
       </form>
     </div>
