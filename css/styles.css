@@ -1,5 +1,14 @@
+body {
+  font-family: sans-serif;
+}
+
+.fontstyle {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
 .heading3 {
-  background-color: purple;
+  background-color: #562b81;
   height: 60px;
   margin: 0;
   color: white;
@@ -8,11 +17,14 @@
 
 .imgsize {
   width: 100%;
+  margin-bottom: 25px;
 }
 
 .inputstyle {
   width: 100%;
   height: 40px;
+  margin-top: 10px;
+  margin-bottom: 35px;
 }
 
 .textarea {
@@ -21,6 +33,13 @@
   resize: none;
 }
 
-.buttonplacement {
+.button {
   float: right;
+  background-color: #562b81;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 20px;
+  font-size: 1.3rem;
+  cursor: pointer;
 }
