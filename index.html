@@ -13,14 +13,18 @@
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Proza+Libre&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
-    <h3 class="heading3">Code Journal</h3>
+    <div class="purple">
+      <h1 class="journalhead">Code Journal</h1>
+    </div>
   </header>
   <main>
     <div class="container" data-view="entry-form">
-      <h1>New Entry</h1>
+      <h1 class="h1placement">New Entry</h1>
       <form>
         <div class="row">
           <div class="column-half">
@@ -43,7 +47,7 @@
               <label class="fontstyle" for="notes">Notes</label><br />
               <textarea class="textarea inputstyle" name="notes" id="notes"></textarea>
             </div>
-            <div>
+            <div class="buttonflex">
               <button class="button" type="submit">SAVE</button>
             </div>
           </div>
