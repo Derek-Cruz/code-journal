@@ -18,7 +18,7 @@ $entryForm.addEventListener('submit', function (event) {
 
   data.nextEntryId++;
 
-  data[0].entries.unshift($entries);
+  data.entries.unshift($entries);
 
   $imageTag.setAttribute('src', 'images/placeholder-image-square.jpg');
 
