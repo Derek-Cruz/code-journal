@@ -5,12 +5,14 @@ const $photoUrl = document.querySelector('.photo-url');
 const $entryForm = document.querySelector('.entry-form');
 
 $photoUrl.addEventListener('input', function (event) {
-  $imageTag.setAttributes('src', event.target.value);
+  $imageTag.setAttribute('src', event.target.value);
 });
 
 $entryForm.addEventListener('submit', function (event) {
+  event.preventDefault();
   const $entries = {};
-  $entries.title = $entries.elements.title.value;
-  $entries.photourl = $entries.elements.photourl.value;
-  $entries.notes = $entries.elements.notes.value;
+  $entries.title = $entryForm.elements.title.value;
+  $entries.photourl = $entryForm.elements.photourl.value;
+  $entries.notes = $entryForm.elements.notes.value;
+  $entries.entryid = data.nextEntryId;
 });
