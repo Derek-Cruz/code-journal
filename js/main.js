@@ -15,4 +15,6 @@ $entryForm.addEventListener('submit', function (event) {
   $entries.photourl = $entryForm.elements.photourl.value;
   $entries.notes = $entryForm.elements.notes.value;
   $entries.entryid = data.nextEntryId;
+
+  data.nextEntryId++;
 });
