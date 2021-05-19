@@ -2,7 +2,7 @@
 /* exported data */
 const $imageTag = document.querySelector('img');
 const $photoUrl = document.querySelector('.photo-url');
-const $entryForm = document.querySelector('form');
+const $entryForm = document.querySelector('.entry-form');
 
 $photoUrl.addEventListener('input', function (event) {
   $imageTag.setAttribute('src', event.target.value);
@@ -17,4 +17,9 @@ $entryForm.addEventListener('submit', function (event) {
   $entries.entryid = data.nextEntryId;
 
   data.nextEntryId++;
+
+  data[0].entries.unshift($entries);
+
+  $imageTag.setAttribute('src', 'images/placeholder-image-square.jpg');
+
 });
