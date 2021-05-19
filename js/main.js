@@ -2,7 +2,7 @@
 /* exported data */
 const $imageTag = document.querySelector('img');
 const $photoUrl = document.querySelector('.photo-url');
-const $entryForm = document.querySelector('.entry-form');
+const $entryForm = document.querySelector('form');
 
 $photoUrl.addEventListener('input', function (event) {
   $imageTag.setAttribute('src', event.target.value);
