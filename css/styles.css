@@ -1,0 +1,74 @@
+body {
+  font-family: 'Proza Libre', sans-serif;
+}
+
+.fontstyle {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.purple {
+  background-color: #562b81;
+}
+
+.h1placement {
+  padding-left: 12px;
+}
+
+.journalhead {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 60px;
+  margin: 0 auto;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 400;
+  width: 32%;
+}
+
+.imgsize {
+  width: 100%;
+  margin-bottom: 25px;
+}
+
+.inputstyle {
+  width: 100%;
+  height: 40px;
+  margin-top: 10px;
+  margin-bottom: 35px;
+}
+
+.textarea {
+  width: 100%;
+  height: 150px;
+  resize: none;
+}
+
+.buttonflex {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 25px;
+}
+
+.button {
+  background-color: #562b81;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 20px;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 575px) {
+  .journalhead {
+    width: 375px;
+    margin: 0;
+    padding-left: 23px;
+  }
+
+  .h1placement {
+    padding: 0;
+  }
+}
