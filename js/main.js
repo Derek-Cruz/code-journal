@@ -57,6 +57,6 @@ function entryMaker(entry) {
 const $ulEntries = document.querySelector('.ul-entries');
 
 for (let i = 0; i < data.entries.length; i++) {
-  var $entry = entryMaker(data.entries[i]);
+  const $entry = entryMaker(data.entries[i]);
   $ulEntries.appendChild($entry);
 }

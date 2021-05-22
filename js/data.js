@@ -16,3 +16,10 @@ window.addEventListener('beforeunload', function (event) {
   const $data = JSON.stringify(data);
   localStorage.setItem('entries', $data);
 });
+
+/* window.addEventListener('DOMContentLoaded', function (event) {
+  for (let i = 0; i < data.entries.length; i++) {
+
+  }
+});
+*/
