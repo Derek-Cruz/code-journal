@@ -24,3 +24,14 @@ $entryForm.addEventListener('submit', function (event) {
 
   $entryForm.reset();
 });
+
+/*
+<li class="row">
+<div class="column-half">
+<img class="entries-img"
+<div class="column-half">
+<h2>
+<p>
+ */
+
+// function
