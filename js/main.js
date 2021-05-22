@@ -25,13 +25,23 @@ $entryForm.addEventListener('submit', function (event) {
   $entryForm.reset();
 });
 
-/*
-<li class="row">
-<div class="column-half">
-<img class="entries-img"
-<div class="column-half">
-<h2>
-<p>
- */
+/* function entryMaker(entry) {
+  const $li = document.createElement('li');
+  $li.setAttribute('class', 'row');
 
-// function
+  const $div = document.createElement('div');
+  $div.setAttribute('class', 'column-half');
+
+  const $img = document.createElement('img');
+  $img.setAttribute('class', 'entries-img');
+  $img.setAttribute('src', entry.photourl);
+
+  const $divTwo = document.createElement('div');
+  $divTwo.setAttribute('class', 'column-half');
+
+  const $headerTwo = document.createElement('h2');
+  $headerTwo.textContent = entry.title;
+
+  const $paragraph = document.createElement('p');
+  $paragraph.textContent = entry.notes;
+} */
