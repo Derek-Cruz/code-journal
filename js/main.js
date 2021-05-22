@@ -25,7 +25,7 @@ $entryForm.addEventListener('submit', function (event) {
   $entryForm.reset();
 });
 
-/* function entryMaker(entry) {
+function entryMaker(entry) {
   const $li = document.createElement('li');
   $li.setAttribute('class', 'row');
 
@@ -44,4 +44,19 @@ $entryForm.addEventListener('submit', function (event) {
 
   const $paragraph = document.createElement('p');
   $paragraph.textContent = entry.notes;
-} */
+
+  $li.appendChild($div);
+  $div.appendChild($img);
+  $li.appendChild($divTwo);
+  $divTwo.appendChild($headerTwo);
+  $divTwo.appendChild($paragraph);
+
+  return $li;
+}
+
+const $ulEntries = document.querySelector('.ul-entries');
+
+for (let i = 0; i < data.entries.length; i++) {
+  var $entry = entryMaker(data.entries[i]);
+  $ulEntries.appendChild($entry);
+}
