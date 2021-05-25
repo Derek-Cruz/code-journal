@@ -1,4 +1,10 @@
 body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1,
+h2,
+label {
   font-family: 'Proza Libre', sans-serif;
 }
 
