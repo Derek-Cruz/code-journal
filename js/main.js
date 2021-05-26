@@ -2,7 +2,7 @@
 /* exported data */
 const $imageTag = document.querySelector('img');
 const $photoUrl = document.querySelector('.photo-url');
-const $entryForm = document.querySelector('.entry-form');
+const $entryForm = document.querySelector('.entries-form');
 
 $photoUrl.addEventListener('input', function (event) {
   $imageTag.setAttribute('src', event.target.value);
@@ -60,5 +60,19 @@ document.addEventListener('DOMContentLoaded', function (event) {
   for (let i = 0; i < data.entries.length; i++) {
     const $entry = entryMaker(data.entries[i]);
     $ulEntries.appendChild($entry);
+  }
+});
+
+const $container = document.querySelector('.container');
+const $view = document.querySelectorAll('.view');
+
+$container.addEventListener('click', function (event) {
+  const $dataView = event.target.getAttribute('data-view');
+  for (let i = 0; i < $view.length; i++) {
+    if ($view[i].getAttribute('data-view') === $dataView) {
+      $view[i].className = 'view';
+    } else {
+      $view[i].className = 'view hidden';
+    }
   }
 });

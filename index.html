@@ -22,65 +22,66 @@
   <header class="purple">
     <div class="header-flex">
       <h1 class="journalhead">Code Journal</h1>
-      <a>Entries</a>
+      <a href="#1">Entries</a>
     </div>
   </header>
   <main>
-    <div class="container hidden" data-view="entry-form">
-      <h1 class="h1placement">New Entry</h1>
-      <form class="entry-form">
-        <div class="row">
-          <div class="column-half">
-            <img class="entry-form-img" src="../code-journal/images/placeholder-image-square.jpg" alt="placeholder image">
-          </div>
-          <div class="column-half">
-            <div>
-              <label class="fontstyle" for="title">Title</label><br />
-              <input
-                class="inputstyle"
-                type="text"
-                id="title"
-                name="title"
-                required>
+    <div class="container">
+      <div class="view" data-view="entry-form">
+        <h1 class="h1placement">New Entry</h1>
+        <form class="entries-form">
+          <div class="row">
+            <div class="column-half">
+              <img class="entry-form-img" src="../code-journal/images/placeholder-image-square.jpg" alt="placeholder image">
             </div>
-            <div>
-              <label class="fontstyle" for="photourl">Photo URL</label><br />
-              <input
-                class="photo-url inputstyle"
-                type="url"
-                id="photourl"
-                name="photourl"
-                required>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="column-full">
-            <div>
-              <label class="fontstyle" for="notes">Notes</label><br />
-              <textarea
-                class="textarea inputstyle"
-                name="notes"
-                id="notes"
-                required></textarea>
-            </div>
-            <div class="button-save">
-              <button class="button" type="submit">SAVE</button>
+            <div class="column-half">
+              <div>
+                <label class="fontstyle" for="title">Title</label><br />
+                <input
+                  class="inputstyle"
+                  type="text"
+                  id="title"
+                  name="title"
+                  required>
+              </div>
+              <div>
+                <label class="fontstyle" for="photourl">Photo URL</label><br />
+                <input
+                  class="photo-url inputstyle"
+                  type="url"
+                  id="photourl"
+                  name="photourl"
+                  required>
+              </div>
             </div>
           </div>
-        </div>
-      </form>
-    </div>
-    <div class="container" data-view="entries">
-      <div class="row space-between">
-        <h1 class="h1placement">Entries</h1>
-        <button class="button button-new">New</button>
+          <div class="row">
+            <div class="column-full">
+              <div>
+                <label class="fontstyle" for="notes">Notes</label><br />
+                <textarea
+                  class="textarea inputstyle"
+                  name="notes"
+                  id="notes"
+                  required></textarea>
+              </div>
+              <div class="button-save">
+                <button class="button" type="submit">SAVE</button>
+              </div>
+            </div>
+          </div>
+        </form>
       </div>
-      <ul class="ul-entries">
-        <li class="row center hidden">
-          No entries have been recorded.
-        </li>
-      </ul>
+    </div>
+    <!------------------------------------entries container--------------------------------------------------->
+    <div class="container">
+      <div class="view hidden" data-view="entries">
+        <div class="row space-between">
+          <h1 class="h1placement">Entries</h1>
+          <button class="button button-new">NEW</button>
+        </div>
+        <ul class="ul-entries"></ul>
+      </div>
     </div>
   </main>
   <script src="js/data.js"></script>
