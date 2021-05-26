@@ -8,6 +8,10 @@ label {
   font-family: 'Proza Libre', sans-serif;
 }
 
+a {
+  color: white;
+}
+
 .fontstyle {
   font-weight: bold;
   font-size: 1.2rem;
@@ -21,25 +25,25 @@ label {
   padding-left: 12px;
 }
 
-/* .test {
+.header-flex {
   display: flex;
   align-items: center;
   width: 826px;
   margin: 0 auto;
   justify-content: flex-start;
 }
-*/
 
 .journalhead {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  height: 60px;
-  margin: 0 auto;
+  height: 45px;
+
+  /* margin: 0 auto; */
   color: white;
   font-size: 1.5rem;
   font-weight: 400;
-  width: 32%;
+  width: 20%;
 }
 
 .entry-form-img {
@@ -100,12 +104,21 @@ label {
 
 @media screen and (max-width: 575px) {
   .journalhead {
-    width: 375px;
+    width: 185px;
     margin: 0;
     padding-left: 23px;
   }
 
   .h1placement {
     padding: 0;
+  }
+
+  .header-flex {
+    width: 100%;
+  }
+
+  .button {
+    padding: 5px 11px;
+    font-size: 1.1rem;
   }
 }
