@@ -73,6 +73,10 @@ $container.addEventListener('click', function (event) {
       $view[i].className = 'view';
     } else {
       $view[i].className = 'view hidden';
+      // console.log('$dataView value:', $dataView);
+      // console.log('$view[i].getAttribute(data-view) value:', $view[i].getAttribute('data-view'));
     }
   }
+  // console.log('$view value:', $view);
+  // console.log('$container value:', $container);
 });
