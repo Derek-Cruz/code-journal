@@ -67,16 +67,12 @@ const $container = document.querySelector('.container');
 const $view = document.querySelectorAll('.view');
 
 $container.addEventListener('click', function (event) {
-  const $dataView = event.target.getAttribute('data-view');
+  const $dataView = event.target.closest('.view');
   for (let i = 0; i < $view.length; i++) {
     if ($view[i].getAttribute('data-view') === $dataView) {
       $view[i].className = 'view';
     } else {
       $view[i].className = 'view hidden';
-      // console.log('$dataView value:', $dataView);
-      // console.log('$view[i].getAttribute(data-view) value:', $view[i].getAttribute('data-view'));
     }
   }
-  // console.log('$view value:', $view);
-  // console.log('$container value:', $container);
 });
