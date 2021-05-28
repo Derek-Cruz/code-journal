@@ -68,8 +68,9 @@ const $view = document.querySelectorAll('.view');
 
 $container.addEventListener('click', function (event) {
   const $dataView = event.target.closest('.view');
+  const $getDataView = $dataView.getAttribute('data-view');
   for (let i = 0; i < $view.length; i++) {
-    if ($view[i].getAttribute('data-view') === $dataView) {
+    if ($view[i].getAttribute('data-view') === $getDataView) {
       $view[i].className = 'view';
     } else {
       $view[i].className = 'view hidden';
