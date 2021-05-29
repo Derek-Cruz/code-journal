@@ -63,10 +63,23 @@ document.addEventListener('DOMContentLoaded', function (event) {
   }
 });
 
-const $container = document.querySelector('.container');
 const $view = document.querySelectorAll('.view');
+const $aTag = document.querySelector('.a-tag-entries');
+const $newButton = document.querySelector('.button-new');
 
-$container.addEventListener('click', function (event) {
+$aTag.addEventListener('click', viewSwapping);
+$newButton.addEventListener('click', viewSwapping);
+
+function viewSwapping(event) {
+  const $dataView = event.target.getAttribute('data-view');
+  if ($view.getAttribute('data-view') === $dataView) {
+    $view.className = 'view';
+  } else {
+    $view.className = 'view hidden';
+  }
+}
+
+/* $container.addEventListener('click', function (event) {
   const $dataView = event.target.closest('.view');
   const $getDataView = $dataView.getAttribute('data-view');
   for (let i = 0; i < $view.length; i++) {
@@ -77,3 +90,4 @@ $container.addEventListener('click', function (event) {
     }
   }
 });
+*/

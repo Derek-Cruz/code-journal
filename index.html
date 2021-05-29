@@ -22,12 +22,12 @@
   <header class="purple">
     <div class="header-flex">
       <h1 class="journalhead">Code Journal</h1>
-      <a href="#1">Entries</a>
+      <a class="a-tag-entries" data-view="entry-form" href="#1">Entries</a>
     </div>
   </header>
   <main>
     <div class="container">
-      <div class="view hidden" data-view="entry-form">
+      <div class="view hidden">
         <h1 class="h1placement">New Entry</h1>
         <form class="entries-form">
           <div class="row">
@@ -73,10 +73,10 @@
         </form>
       </div>
     <!------------------------------------entries--------------------------------------------------->
-      <div class="view" data-view="entries">
+      <div class="view">
         <div class="row space-between">
           <h1 class="h1placement">Entries</h1>
-          <button class="button button-new">NEW</button>
+          <button class="button button-new" data-view="entries">NEW</button>
         </div>
         <ul class="ul-entries"></ul>
       </div>
