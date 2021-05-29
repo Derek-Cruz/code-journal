@@ -72,11 +72,12 @@ $newButton.addEventListener('click', viewSwapping);
 
 function viewSwapping(event) {
   const $dataView = event.target.getAttribute('data-view');
-  if ($view.getAttribute('data-view') === $dataView) {
-    $view.className = 'view';
-  } else {
-    $view.className = 'view hidden';
+  if ($dataView === 'entry-form') {
+    $view.setAttribute('class', 'view');
+  } else if ($dataView === 'entries') {
+    $view.setAttribute('class', 'view');
   }
+  // console.log('$dataView value:', $dataView);
 }
 
 /* $container.addEventListener('click', function (event) {
