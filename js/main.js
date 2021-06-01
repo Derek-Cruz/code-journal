@@ -63,9 +63,10 @@ document.addEventListener('DOMContentLoaded', function (event) {
   }
 });
 
-const $view = document.querySelectorAll('.view');
 const $aTag = document.querySelector('.a-tag-entries');
 const $newButton = document.querySelector('.button-new');
+const $testing = document.querySelector('div[data-view="entry-form"]');
+const $testingTwo = document.querySelector('div[data-view="entries"]');
 
 $aTag.addEventListener('click', viewSwapping);
 $newButton.addEventListener('click', viewSwapping);
@@ -73,22 +74,10 @@ $newButton.addEventListener('click', viewSwapping);
 function viewSwapping(event) {
   const $dataView = event.target.getAttribute('data-view');
   if ($dataView === 'entry-form') {
-    $view.setAttribute('class', 'view');
+    $testing.setAttribute('class', 'hidden');
+    $testingTwo.setAttribute('class', '');
   } else if ($dataView === 'entries') {
-    $view.setAttribute('class', 'view');
+    $testing.setAttribute('class', '');
+    $testingTwo.setAttribute('class', 'hidden');
   }
-  // console.log('$dataView value:', $dataView);
 }
-
-/* $container.addEventListener('click', function (event) {
-  const $dataView = event.target.closest('.view');
-  const $getDataView = $dataView.getAttribute('data-view');
-  for (let i = 0; i < $view.length; i++) {
-    if ($view[i].getAttribute('data-view') === $getDataView) {
-      $view[i].className = 'view';
-    } else {
-      $view[i].className = 'view hidden';
-    }
-  }
-});
-*/
