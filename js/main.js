@@ -65,8 +65,8 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
 const $aTag = document.querySelector('.a-tag-entries');
 const $newButton = document.querySelector('.button-new');
-const $testing = document.querySelector('div[data-view="entry-form"]');
-const $testingTwo = document.querySelector('div[data-view="entries"]');
+const $goToEntries = document.querySelector('div[data-view="entry-form"]');
+const $goToEntryForm = document.querySelector('div[data-view="entries"]');
 
 $aTag.addEventListener('click', viewSwapping);
 $newButton.addEventListener('click', viewSwapping);
@@ -74,10 +74,16 @@ $newButton.addEventListener('click', viewSwapping);
 function viewSwapping(event) {
   const $dataView = event.target.getAttribute('data-view');
   if ($dataView === 'entry-form') {
-    $testing.setAttribute('class', 'hidden');
-    $testingTwo.setAttribute('class', '');
+    $goToEntries.setAttribute('class', 'hidden');
+    $goToEntryForm.setAttribute('class', '');
   } else if ($dataView === 'entries') {
-    $testing.setAttribute('class', '');
-    $testingTwo.setAttribute('class', 'hidden');
+    $goToEntries.setAttribute('class', '');
+    $goToEntryForm.setAttribute('class', 'hidden');
   }
 }
+
+const $saveButton = document.querySelector('div[class="button-save"]');
+$saveButton.addEventListener('click', function (event) {
+  $goToEntries.setAttribute('class', 'hidden');
+  $goToEntryForm.setAttribute('class', '');
+});
