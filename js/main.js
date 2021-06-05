@@ -20,6 +20,10 @@ $entryForm.addEventListener('submit', function (event) {
 
   data.entries.unshift($entries);
 
+  const $newEntry = entryMaker($entries);
+
+  $ulEntries.prepend($newEntry);
+
   $imageTag.setAttribute('src', 'images/placeholder-image-square.jpg');
 
   $entryForm.reset();
