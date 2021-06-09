@@ -77,21 +77,25 @@ $newButton.addEventListener('click', viewSwapping);
 
 // part-time-help said i should addEventListener 'load'
 function viewSwapping(event) {
-  const $dataView = event.target.getAttribute('data-view');
-  if ($dataView === 'entry-form') {
+  // const $dataView = event.target.getAttribute('data-view');
+  if (event === 'entry-form') {
     $goToEntries.setAttribute('class', 'hidden');
     $goToEntryForm.setAttribute('class', '');
 
-    data.view = 'entries';
+    // data.view = '';
     // console.log('data.view value:', data.view);
-  } else if ($dataView === 'entries') {
+  } else if (event === 'entries') {
     $goToEntries.setAttribute('class', '');
     $goToEntryForm.setAttribute('class', 'hidden');
 
-    data.view = 'entry-form';
+    // data.view = 'entries';
     // console.log('data.view value:', data.view);
   }
 }
+
+/* document.addEventListener('DOMContentLoaded', function (event) {
+  viewSwapping(data.view);
+}); */
 
 const $saveButton = document.querySelector('div[class="button-save"]');
 $saveButton.addEventListener('click', function (event) {
