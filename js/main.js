@@ -75,14 +75,21 @@ const $goToEntryForm = document.querySelector('div[data-view="entries"]');
 $aTag.addEventListener('click', viewSwapping);
 $newButton.addEventListener('click', viewSwapping);
 
+// part-time-help said i should addEventListener 'load'
 function viewSwapping(event) {
   const $dataView = event.target.getAttribute('data-view');
   if ($dataView === 'entry-form') {
     $goToEntries.setAttribute('class', 'hidden');
     $goToEntryForm.setAttribute('class', '');
+
+    data.view = 'entries';
+    // console.log('data.view value:', data.view);
   } else if ($dataView === 'entries') {
     $goToEntries.setAttribute('class', '');
     $goToEntryForm.setAttribute('class', 'hidden');
+
+    data.view = 'entry-form';
+    // console.log('data.view value:', data.view);
   }
 }
 
