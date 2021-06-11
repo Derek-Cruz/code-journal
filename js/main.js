@@ -65,6 +65,8 @@ document.addEventListener('DOMContentLoaded', function (event) {
     const $entry = entryMaker(data.entries[i]);
     $ulEntries.appendChild($entry);
   }
+
+  viewSwapping(data.view);
 });
 
 const $aTag = document.querySelector('.a-tag-entries');
@@ -72,30 +74,27 @@ const $newButton = document.querySelector('.button-new');
 const $goToEntries = document.querySelector('div[data-view="entry-form"]');
 const $goToEntryForm = document.querySelector('div[data-view="entries"]');
 
-$aTag.addEventListener('click', viewSwapping);
-$newButton.addEventListener('click', viewSwapping);
+$aTag.addEventListener('click', function (event) {
+  data.view = 'entries';
+});
 
-// part-time-help said i should addEventListener 'load'
+$newButton.addEventListener('click', function (event) {
+  data.view = 'entry-form';
+});
+
 function viewSwapping(event) {
   // const $dataView = event.target.getAttribute('data-view');
   if (event === 'entry-form') {
     $goToEntries.setAttribute('class', 'hidden');
     $goToEntryForm.setAttribute('class', '');
 
-    // data.view = '';
-    // console.log('data.view value:', data.view);
   } else if (event === 'entries') {
     $goToEntries.setAttribute('class', '');
     $goToEntryForm.setAttribute('class', 'hidden');
 
-    // data.view = 'entries';
-    // console.log('data.view value:', data.view);
+    data.view = 'entries';
   }
 }
-
-/* document.addEventListener('DOMContentLoaded', function (event) {
-  viewSwapping(data.view);
-}); */
 
 const $saveButton = document.querySelector('div[class="button-save"]');
 $saveButton.addEventListener('click', function (event) {
