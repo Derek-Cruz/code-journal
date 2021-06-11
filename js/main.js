@@ -67,6 +67,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
   }
 
   viewSwapping(data.view);
+  testingThisFunction(data.view);
 });
 
 const $aTag = document.querySelector('.a-tag-entries');
@@ -83,12 +84,25 @@ $newButton.addEventListener('click', function (event) {
 });
 
 function viewSwapping(event) {
-  // const $dataView = event.target.getAttribute('data-view');
   if (event === 'entry-form') {
     $goToEntries.setAttribute('class', 'hidden');
     $goToEntryForm.setAttribute('class', '');
 
   } else if (event === 'entries') {
+    $goToEntries.setAttribute('class', '');
+    $goToEntryForm.setAttribute('class', 'hidden');
+
+    data.view = 'entries';
+  }
+}
+
+function testingThisFunction(event) {
+  const $dataView = event.target.getAttribute('data-view');
+  if ($dataView === 'entry-form') {
+    $goToEntries.setAttribute('class', 'hidden');
+    $goToEntryForm.setAttribute('class', '');
+
+  } else if ($dataView === 'entries') {
     $goToEntries.setAttribute('class', '');
     $goToEntryForm.setAttribute('class', 'hidden');
 
