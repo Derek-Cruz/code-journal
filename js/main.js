@@ -66,7 +66,6 @@ document.addEventListener('DOMContentLoaded', function (event) {
     $ulEntries.appendChild($entry);
   }
 
-  viewSwapping(data.view);
   testingThisFunction(data.view);
 });
 
@@ -75,38 +74,38 @@ const $newButton = document.querySelector('.button-new');
 const $goToEntries = document.querySelector('div[data-view="entry-form"]');
 const $goToEntryForm = document.querySelector('div[data-view="entries"]');
 
-$aTag.addEventListener('click', function (event) {
-  data.view = 'entries';
-});
-
-$newButton.addEventListener('click', function (event) {
-  data.view = 'entry-form';
-});
+$aTag.addEventListener('click', viewSwapping);
+$newButton.addEventListener('click', viewSwapping);
 
 function viewSwapping(event) {
   if (event === 'entry-form') {
-    $goToEntries.setAttribute('class', 'hidden');
-    $goToEntryForm.setAttribute('class', '');
-
-  } else if (event === 'entries') {
     $goToEntries.setAttribute('class', '');
     $goToEntryForm.setAttribute('class', 'hidden');
 
+    data.view = 'entry-form';
+    // console.log('if viewSwapping', event);
+  } else if (event === 'entries') {
+    $goToEntries.setAttribute('class', 'hidden');
+    $goToEntryForm.setAttribute('class', '');
+
     data.view = 'entries';
+    // console.log('else viewSwapping', event);
   }
 }
 
 function testingThisFunction(event) {
-  const $dataView = event.target.getAttribute('data-view');
-  if ($dataView === 'entry-form') {
-    $goToEntries.setAttribute('class', 'hidden');
-    $goToEntryForm.setAttribute('class', '');
-
-  } else if ($dataView === 'entries') {
+  if (data.view === 'entry-form') {
     $goToEntries.setAttribute('class', '');
     $goToEntryForm.setAttribute('class', 'hidden');
 
+    data.view = 'entry-form';
+    // console.log('if testingThisFunction:', data.view);
+  } else if (data.view === 'entries') {
+    $goToEntries.setAttribute('class', 'hidden');
+    $goToEntryForm.setAttribute('class', '');
+
     data.view = 'entries';
+    // console.log('else testingThisFunction:', data.view);
   }
 }
 
