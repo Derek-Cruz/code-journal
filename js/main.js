@@ -100,12 +100,14 @@ function testingThisFunction(event) {
 
     data.view = 'entry-form';
     // console.log('if testingThisFunction:', data.view);
+    // console.log('3event:', event);
   } else if (data.view === 'entries') {
     $goToEntries.setAttribute('class', 'hidden');
     $goToEntryForm.setAttribute('class', '');
 
     data.view = 'entries';
     // console.log('else testingThisFunction:', data.view);
+    // console.log('4event:', event);
   }
 }
 
