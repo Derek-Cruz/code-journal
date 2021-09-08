@@ -15,58 +15,70 @@
   <link rel="stylesheet" href="css/styles.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Proza+Libre&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <div class="purple">
+  <header class="purple">
+    <div class="header-flex">
       <h1 class="journalhead">Code Journal</h1>
+      <a class="a-tag-entries" data-view="entry-form" href="#1">Entries</a>
     </div>
   </header>
   <main>
-    <div class="container" data-view="entry-form">
-      <h1 class="h1placement">New Entry</h1>
-      <form class="entry-form">
-        <div class="row">
-          <div class="column-half">
-            <img class="imgsize" src="../code-journal/images/placeholder-image-square.jpg" alt="placeholder image">
-          </div>
-          <div class="column-half">
-            <div>
-              <label class="fontstyle" for="title">Title</label><br />
-              <input
-                class="inputstyle"
-                type="text"
-                id="title"
-                name="title"
-                required>
+    <div class="container">
+      <div data-view="entry-form">
+        <h1 class="h1placement">New Entry</h1>
+        <form class="entries-form">
+          <div class="row">
+            <div class="column-half">
+              <img class="entry-form-img" src="../code-journal/images/placeholder-image-square.jpg" alt="placeholder image">
             </div>
-            <div>
-              <label class="fontstyle" for="photourl">Photo URL</label><br />
-              <input
-                class="photo-url inputstyle"
-                type="url"
-                id="photourl"
-                name="photourl"
-                required>
+            <div class="column-half">
+              <div>
+                <label class="fontstyle" for="title">Title</label><br />
+                <input
+                  required
+                  class="inputstyle"
+                  type="text"
+                  id="title"
+                  name="title">
+              </div>
+              <div>
+                <label class="fontstyle" for="photourl">Photo URL</label><br />
+                <input
+                  required
+                  class="photo-url inputstyle"
+                  type="url"
+                  id="photourl"
+                  name="photourl">
+              </div>
             </div>
           </div>
+          <div class="row">
+            <div class="column-full">
+              <div>
+                <label class="fontstyle" for="notes">Notes</label><br />
+                <textarea
+                  required
+                  class="textarea inputstyle"
+                  name="notes"
+                  id="notes"></textarea>
+              </div>
+              <div class="button-save">
+                <button class="button testing" type="submit">SAVE</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="hidden" data-view="entries">
+        <div class="row space-between">
+          <h1 class="h1placement">Entries</h1>
+          <button class="button button-new" data-view="entries">NEW</button>
         </div>
-        <div class="row">
-          <div class="column-full">
-            <div>
-              <label class="fontstyle" for="notes">Notes</label><br />
-              <textarea
-                class="textarea inputstyle"
-                name="notes"
-                id="notes"
-                required></textarea>
-            </div>
-            <div class="buttonflex">
-              <button class="button" type="submit">SAVE</button>
-            </div>
-          </div>
-        </div>
-      </form>
+        <ul class="ul-entries"></ul>
+      </div>
     </div>
   </main>
   <script src="js/data.js"></script>
