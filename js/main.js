@@ -66,8 +66,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
     $ulEntries.appendChild($entry);
   }
 
-  viewSwapping('data.view');
-  // console.log('data.view:', data.view);
+  viewSwapping(data.view);
 });
 
 const $aTag = document.querySelector('.a-tag-entries');
@@ -75,13 +74,13 @@ const $newButton = document.querySelector('.button-new');
 const $entryFormView = document.querySelector('div[data-view="entry-form"]');
 const $entriesView = document.querySelector('div[data-view="entries"]');
 
-function viewSwapping(event) {
-  if (event === 'entry-form') {
+function viewSwapping(view) {
+  if (view === 'entry-form') {
     $entryFormView.setAttribute('class', '');
     $entriesView.setAttribute('class', 'hidden');
 
     data.view = 'entry-form';
-  } else if (event === 'entries') {
+  } else if (view === 'entries') {
     $entryFormView.setAttribute('class', 'hidden');
     $entriesView.setAttribute('class', '');
 
@@ -99,6 +98,5 @@ $newButton.addEventListener('click', function (event) {
 
 const $saveButton = document.querySelector('div[class="button-save"]');
 $saveButton.addEventListener('click', function (event) {
-  $entryFormView.setAttribute('class', 'hidden');
-  $entriesView.setAttribute('class', '');
+  viewSwapping('entries');
 });
