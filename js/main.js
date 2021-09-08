@@ -66,42 +66,39 @@ document.addEventListener('DOMContentLoaded', function (event) {
     $ulEntries.appendChild($entry);
   }
 
-  viewSwapping(data.view);
+  viewSwapping('data.view');
+  // console.log('data.view:', data.view);
 });
 
 const $aTag = document.querySelector('.a-tag-entries');
 const $newButton = document.querySelector('.button-new');
-const $goToEntries = document.querySelector('div[data-view="entry-form"]');
-const $goToEntryForm = document.querySelector('div[data-view="entries"]');
+const $entryFormView = document.querySelector('div[data-view="entry-form"]');
+const $entriesView = document.querySelector('div[data-view="entries"]');
 
 function viewSwapping(event) {
   if (event === 'entry-form') {
-    $goToEntries.setAttribute('class', '');
-    $goToEntryForm.setAttribute('class', 'hidden');
+    $entryFormView.setAttribute('class', '');
+    $entriesView.setAttribute('class', 'hidden');
 
     data.view = 'entry-form';
-    // console.log('if viewSwapping', event);
   } else if (event === 'entries') {
-    $goToEntries.setAttribute('class', 'hidden');
-    $goToEntryForm.setAttribute('class', '');
+    $entryFormView.setAttribute('class', 'hidden');
+    $entriesView.setAttribute('class', '');
 
     data.view = 'entries';
-    // console.log('else viewSwapping', event);
   }
 }
 
 $aTag.addEventListener('click', function (event) {
-  $goToEntries.setAttribute('class', 'hidden');
-  $goToEntryForm.setAttribute('class', '');
+  viewSwapping('entries');
 });
 
 $newButton.addEventListener('click', function (event) {
-  $goToEntries.setAttribute('class', '');
-  $goToEntryForm.setAttribute('class', 'hidden');
+  viewSwapping('entry-form');
 });
 
 const $saveButton = document.querySelector('div[class="button-save"]');
 $saveButton.addEventListener('click', function (event) {
-  $goToEntries.setAttribute('class', 'hidden');
-  $goToEntryForm.setAttribute('class', '');
+  $entryFormView.setAttribute('class', 'hidden');
+  $entriesView.setAttribute('class', '');
 });
