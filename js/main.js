@@ -27,6 +27,7 @@ $entryForm.addEventListener('submit', function (event) {
   $imageTag.setAttribute('src', 'images/placeholder-image-square.jpg');
 
   $entryForm.reset();
+  viewSwapping('entries');
 });
 
 function entryMaker(entry) {
@@ -94,9 +95,4 @@ $aTag.addEventListener('click', function (event) {
 
 $newButton.addEventListener('click', function (event) {
   viewSwapping('entry-form');
-});
-
-const $saveButton = document.querySelector('div[class="button-save"]');
-$saveButton.addEventListener('click', function (event) {
-  viewSwapping('entries');
 });
