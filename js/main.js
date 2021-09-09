@@ -107,3 +107,7 @@ $aTag.addEventListener('click', function (event) {
 $newButton.addEventListener('click', function (event) {
   viewSwapping('entry-form');
 });
+
+$ulEntries.addEventListener('click', function (event) {
+
+});
