@@ -32,6 +32,7 @@ $entryForm.addEventListener('submit', function (event) {
 
 function entryMaker(entry) {
   const $li = document.createElement('li');
+  $li.setAttribute('data-entry-id', entry.entryID);
   $li.setAttribute('class', 'row');
 
   const $div = document.createElement('div');
@@ -52,6 +53,7 @@ function entryMaker(entry) {
   $headerTwo.textContent = entry.title;
 
   const $editIcon = document.createElement('i');
+  $editIcon.setAttribute('data-entry-id', entry.entryId);
   $editIcon.setAttribute('class', 'column-10 fas fa-pen');
 
   const $paragraph = document.createElement('p');
