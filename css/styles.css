@@ -19,6 +19,14 @@ i {
   color: #562b81;
 }
 
+.header-icon-placement {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
+}
+
 .fontstyle {
   font-weight: bold;
   font-size: 1.2rem;

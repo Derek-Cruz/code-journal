@@ -44,11 +44,15 @@ function entryMaker(entry) {
   const $divTwo = document.createElement('div');
   $divTwo.setAttribute('class', 'column-half');
 
+  const $divHeaderIcon = document.createElement('div');
+  $divHeaderIcon.setAttribute('class', 'column-full header-icon-placement');
+
   const $headerTwo = document.createElement('h2');
+  $headerTwo.setAttribute('class', 'column-85');
   $headerTwo.textContent = entry.title;
 
   const $editIcon = document.createElement('i');
-  $editIcon.setAttribute('class', 'fas fa-pen');
+  $editIcon.setAttribute('class', 'column-10 fas fa-pen');
 
   const $paragraph = document.createElement('p');
   $paragraph.textContent = entry.notes;
@@ -56,8 +60,9 @@ function entryMaker(entry) {
   $li.appendChild($div);
   $div.appendChild($img);
   $li.appendChild($divTwo);
-  $divTwo.appendChild($headerTwo);
-  $divTwo.appendChild($editIcon);
+  $divTwo.appendChild($divHeaderIcon);
+  $divHeaderIcon.appendChild($headerTwo);
+  $divHeaderIcon.appendChild($editIcon);
   $divTwo.appendChild($paragraph);
 
   return $li;
