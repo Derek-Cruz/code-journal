@@ -47,6 +47,9 @@ function entryMaker(entry) {
   const $headerTwo = document.createElement('h2');
   $headerTwo.textContent = entry.title;
 
+  const $editIcon = document.createElement('i');
+  $editIcon.setAttribute('class', 'fas fa-pen');
+
   const $paragraph = document.createElement('p');
   $paragraph.textContent = entry.notes;
 
@@ -54,6 +57,7 @@ function entryMaker(entry) {
   $div.appendChild($img);
   $li.appendChild($divTwo);
   $divTwo.appendChild($headerTwo);
+  $divTwo.appendChild($editIcon);
   $divTwo.appendChild($paragraph);
 
   return $li;
