@@ -119,11 +119,18 @@ $ulEntries.addEventListener('click', function (event) {
 
   const $entryIdNum = event.target.getAttribute('data-entry-id');
 
+  const $parsedEntry = parseInt($entryIdNum);
+
+  const $img = document.querySelector('img');
+
   for (let entriesIndex = 0; entriesIndex < data.entries.length; entriesIndex++) {
-    if ($entryIdNum === data.entries[entriesIndex].entryId) {
-      $entryForm.title = data.entries[entriesIndex].title;
-      $entryForm.photoUrl = data.entries[entriesIndex].photoUrl;
-      $entryForm.notes = data.entries[entriesIndex].notes;
+    if ($parsedEntry === data.entries[entriesIndex].entryId) {
+      $img.setAttribute('src', data.entries[entriesIndex].photoUrl);
+      $entryForm.elements.title.value = data.entries[entriesIndex].title;
+      $entryForm.elements.photoUrl.value = data.entries[entriesIndex].photoUrl;
+      $entryForm.elements.notes.value = data.entries[entriesIndex].notes;
+
+      data.editing = data.entries[entriesIndex];
     }
   }
 });
