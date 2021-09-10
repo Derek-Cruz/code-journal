@@ -12,9 +12,9 @@ $entryForm.addEventListener('submit', function (event) {
   event.preventDefault();
   const $entries = {};
   $entries.title = $entryForm.elements.title.value;
-  $entries.photourl = $entryForm.elements.photourl.value;
+  $entries.photoUrl = $entryForm.elements.photoUrl.value;
   $entries.notes = $entryForm.elements.notes.value;
-  $entries.entryid = data.nextEntryId;
+  $entries.entryId = data.nextEntryId;
 
   data.nextEntryId++;
 
@@ -32,7 +32,7 @@ $entryForm.addEventListener('submit', function (event) {
 
 function entryMaker(entry) {
   const $li = document.createElement('li');
-  $li.setAttribute('data-entry-id', entry.entryID);
+  $li.setAttribute('data-entry-id', entry.entryId);
   $li.setAttribute('class', 'row');
 
   const $div = document.createElement('div');
@@ -40,7 +40,7 @@ function entryMaker(entry) {
 
   const $img = document.createElement('img');
   $img.setAttribute('class', 'entries-img');
-  $img.setAttribute('src', entry.photourl);
+  $img.setAttribute('src', entry.photoUrl);
 
   const $divTwo = document.createElement('div');
   $divTwo.setAttribute('class', 'column-half');
@@ -116,7 +116,4 @@ $ulEntries.addEventListener('click', function (event) {
   const $h1 = document.querySelector('#page-header');
   $h1.textContent = 'Edit Entry';
   $entriesView.className = 'hidden';
-
-  // const $entryIdNum = event.target.getAttribute('data-entry-id');
-  // console.log('testing:', $entryIdNum);
 });
