@@ -3,6 +3,7 @@
 const $imageTag = document.querySelector('img');
 const $photoUrl = document.querySelector('.photo-url');
 const $entryForm = document.querySelector('.entries-form');
+const $h1 = document.querySelector('#page-header');
 
 $photoUrl.addEventListener('input', function (event) {
   $imageTag.setAttribute('src', event.target.value);
@@ -105,6 +106,7 @@ $aTag.addEventListener('click', function (event) {
 });
 
 $newButton.addEventListener('click', function (event) {
+  $h1.textContent = 'New Entry';
   viewSwapping('entry-form');
 });
 
@@ -112,8 +114,16 @@ $ulEntries.addEventListener('click', function (event) {
   if (event.target.tagName !== 'I') {
     return;
   }
-  $entryForm.className = '';
-  const $h1 = document.querySelector('#page-header');
   $h1.textContent = 'Edit Entry';
-  $entriesView.className = 'hidden';
+  viewSwapping('entry-form');
+
+  const $entryIdNum = event.target.getAttribute('data-entry-id');
+
+  for (let entriesIndex = 0; entriesIndex < data.entries.length; entriesIndex++) {
+    if ($entryIdNum === data.entries[entriesIndex].entryId) {
+      $entryForm.title = data.entries[entriesIndex].title;
+      $entryForm.photoUrl = data.entries[entriesIndex].photoUrl;
+      $entryForm.notes = data.entries[entriesIndex].notes;
+    }
+  }
 });
