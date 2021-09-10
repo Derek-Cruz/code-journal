@@ -109,5 +109,14 @@ $newButton.addEventListener('click', function (event) {
 });
 
 $ulEntries.addEventListener('click', function (event) {
+  if (event.target.tagName !== 'I') {
+    return;
+  }
+  $entryForm.className = '';
+  const $h1 = document.querySelector('#page-header');
+  $h1.textContent = 'Edit Entry';
+  $entriesView.className = 'hidden';
 
+  // const $entryIdNum = event.target.getAttribute('data-entry-id');
+  // console.log('testing:', $entryIdNum);
 });
