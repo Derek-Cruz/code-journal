@@ -12,11 +12,16 @@ $photoUrl.addEventListener('input', function (event) {
 $entryForm.addEventListener('submit', function (event) {
   event.preventDefault();
   if (data.editing !== null) {
-    const $editedEntry = {};
-    $editedEntry.title = $entryForm.elements.title.value;
-    $editedEntry.photoUrl = $entryForm.elements.photoUrl.value;
-    $editedEntry.notes = $entryForm.elements.notes.value;
-    $editedEntry.entryId = data.nextEntryId;
+    data.editing.title = $entryForm.elements.title.value;
+    data.editing.photoUrl = $entryForm.elements.photoUrl.value;
+    data.editing.notes = $entryForm.elements.notes.value;
+
+    const $entriesUpdated = document.querySelector('ul');
+    $entriesUpdated.innerHTML = '';
+    for (let updatedIndex = 0; updatedIndex < data.entries.length; updatedIndex++) {
+      const testTest = entryMaker(data.entries[updatedIndex]);
+      $entriesUpdated.appendChild(testTest);
+    }
 
   } else {
     const $entries = {};
