@@ -16,13 +16,14 @@ $entryForm.addEventListener('submit', function (event) {
     data.editing.photoUrl = $entryForm.elements.photoUrl.value;
     data.editing.notes = $entryForm.elements.notes.value;
 
+    data.editing = null;
+
     const $entriesUpdated = document.querySelector('ul');
     $entriesUpdated.innerHTML = '';
     for (let updatedIndex = 0; updatedIndex < data.entries.length; updatedIndex++) {
       const testTest = entryMaker(data.entries[updatedIndex]);
       $entriesUpdated.appendChild(testTest);
     }
-
   } else {
     const $entries = {};
     $entries.title = $entryForm.elements.title.value;
