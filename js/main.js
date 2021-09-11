@@ -11,22 +11,26 @@ $photoUrl.addEventListener('input', function (event) {
 
 $entryForm.addEventListener('submit', function (event) {
   event.preventDefault();
-  const $entries = {};
-  $entries.title = $entryForm.elements.title.value;
-  $entries.photoUrl = $entryForm.elements.photoUrl.value;
-  $entries.notes = $entryForm.elements.notes.value;
-  $entries.entryId = data.nextEntryId;
+  if (data.editing !== null) {
+    const $editedEntry = {};
+    $editedEntry.title = $entryForm.elements.title.value;
+    $editedEntry.photoUrl = $entryForm.elements.photoUrl.value;
+    $editedEntry.notes = $entryForm.elements.notes.value;
+    $editedEntry.entryId = data.nextEntryId;
 
-  data.nextEntryId++;
+  } else {
+    const $entries = {};
+    $entries.title = $entryForm.elements.title.value;
+    $entries.photoUrl = $entryForm.elements.photoUrl.value;
+    $entries.notes = $entryForm.elements.notes.value;
+    $entries.entryId = data.nextEntryId;
 
-  data.entries.unshift($entries);
-
-  const $newEntry = entryMaker($entries);
-
-  $ulEntries.prepend($newEntry);
-
+    data.nextEntryId++;
+    data.entries.unshift($entries);
+    const $newEntry = entryMaker($entries);
+    $ulEntries.prepend($newEntry);
+  }
   $imageTag.setAttribute('src', 'images/placeholder-image-square.jpg');
-
   $entryForm.reset();
   viewSwapping('entries');
 });
@@ -121,11 +125,9 @@ $ulEntries.addEventListener('click', function (event) {
 
   const $parsedEntry = parseInt($entryIdNum);
 
-  const $img = document.querySelector('img');
-
   for (let entriesIndex = 0; entriesIndex < data.entries.length; entriesIndex++) {
     if ($parsedEntry === data.entries[entriesIndex].entryId) {
-      $img.setAttribute('src', data.entries[entriesIndex].photoUrl);
+      $imageTag.setAttribute('src', data.entries[entriesIndex].photoUrl);
       $entryForm.elements.title.value = data.entries[entriesIndex].title;
       $entryForm.elements.photoUrl.value = data.entries[entriesIndex].photoUrl;
       $entryForm.elements.notes.value = data.entries[entriesIndex].notes;
