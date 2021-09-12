@@ -3,6 +3,7 @@
 const $imageTag = document.querySelector('img');
 const $photoUrl = document.querySelector('.photo-url');
 const $entryForm = document.querySelector('.entries-form');
+const $h1 = document.querySelector('#page-header');
 
 $photoUrl.addEventListener('input', function (event) {
   $imageTag.setAttribute('src', event.target.value);
@@ -10,28 +11,39 @@ $photoUrl.addEventListener('input', function (event) {
 
 $entryForm.addEventListener('submit', function (event) {
   event.preventDefault();
-  const $entries = {};
-  $entries.title = $entryForm.elements.title.value;
-  $entries.photourl = $entryForm.elements.photourl.value;
-  $entries.notes = $entryForm.elements.notes.value;
-  $entries.entryid = data.nextEntryId;
+  if (data.editing !== null) {
+    data.editing.title = $entryForm.elements.title.value;
+    data.editing.photoUrl = $entryForm.elements.photoUrl.value;
+    data.editing.notes = $entryForm.elements.notes.value;
 
-  data.nextEntryId++;
+    data.editing = null;
 
-  data.entries.unshift($entries);
+    const $entriesUpdated = document.querySelector('ul');
+    $entriesUpdated.innerHTML = '';
+    for (let updatedIndex = 0; updatedIndex < data.entries.length; updatedIndex++) {
+      const testTest = entryMaker(data.entries[updatedIndex]);
+      $entriesUpdated.appendChild(testTest);
+    }
+  } else {
+    const $entries = {};
+    $entries.title = $entryForm.elements.title.value;
+    $entries.photoUrl = $entryForm.elements.photoUrl.value;
+    $entries.notes = $entryForm.elements.notes.value;
+    $entries.entryId = data.nextEntryId;
 
-  const $newEntry = entryMaker($entries);
-
-  $ulEntries.prepend($newEntry);
-
+    data.nextEntryId++;
+    data.entries.unshift($entries);
+    const $newEntry = entryMaker($entries);
+    $ulEntries.prepend($newEntry);
+  }
   $imageTag.setAttribute('src', 'images/placeholder-image-square.jpg');
-
   $entryForm.reset();
   viewSwapping('entries');
 });
 
 function entryMaker(entry) {
   const $li = document.createElement('li');
+  $li.setAttribute('data-entry-id', entry.entryId);
   $li.setAttribute('class', 'row');
 
   const $div = document.createElement('div');
@@ -39,13 +51,21 @@ function entryMaker(entry) {
 
   const $img = document.createElement('img');
   $img.setAttribute('class', 'entries-img');
-  $img.setAttribute('src', entry.photourl);
+  $img.setAttribute('src', entry.photoUrl);
 
   const $divTwo = document.createElement('div');
   $divTwo.setAttribute('class', 'column-half');
 
+  const $divHeaderIcon = document.createElement('div');
+  $divHeaderIcon.setAttribute('class', 'column-full header-icon-placement');
+
   const $headerTwo = document.createElement('h2');
+  $headerTwo.setAttribute('class', 'column-85');
   $headerTwo.textContent = entry.title;
+
+  const $editIcon = document.createElement('i');
+  $editIcon.setAttribute('data-entry-id', entry.entryId);
+  $editIcon.setAttribute('class', 'column-10 fas fa-pen');
 
   const $paragraph = document.createElement('p');
   $paragraph.textContent = entry.notes;
@@ -53,7 +73,9 @@ function entryMaker(entry) {
   $li.appendChild($div);
   $div.appendChild($img);
   $li.appendChild($divTwo);
-  $divTwo.appendChild($headerTwo);
+  $divTwo.appendChild($divHeaderIcon);
+  $divHeaderIcon.appendChild($headerTwo);
+  $divHeaderIcon.appendChild($editIcon);
   $divTwo.appendChild($paragraph);
 
   return $li;
@@ -94,5 +116,29 @@ $aTag.addEventListener('click', function (event) {
 });
 
 $newButton.addEventListener('click', function (event) {
+  $h1.textContent = 'New Entry';
   viewSwapping('entry-form');
+});
+
+$ulEntries.addEventListener('click', function (event) {
+  if (event.target.tagName !== 'I') {
+    return;
+  }
+  $h1.textContent = 'Edit Entry';
+  viewSwapping('entry-form');
+
+  const $entryIdNum = event.target.getAttribute('data-entry-id');
+
+  const $parsedEntry = parseInt($entryIdNum);
+
+  for (let entriesIndex = 0; entriesIndex < data.entries.length; entriesIndex++) {
+    if ($parsedEntry === data.entries[entriesIndex].entryId) {
+      $imageTag.setAttribute('src', data.entries[entriesIndex].photoUrl);
+      $entryForm.elements.title.value = data.entries[entriesIndex].title;
+      $entryForm.elements.photoUrl.value = data.entries[entriesIndex].photoUrl;
+      $entryForm.elements.notes.value = data.entries[entriesIndex].notes;
+
+      data.editing = data.entries[entriesIndex];
+    }
+  }
 });

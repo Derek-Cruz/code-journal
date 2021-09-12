@@ -27,8 +27,8 @@
   </header>
   <main>
     <div class="container">
-      <div data-view="entry-form">
-        <h1 class="h1placement">New Entry</h1>
+      <div class="view" data-view="entry-form">
+        <h1 id="page-header" class="h1placement">New Entry</h1>
         <form class="entries-form">
           <div class="row">
             <div class="column-half">
@@ -45,13 +45,13 @@
                   name="title">
               </div>
               <div>
-                <label class="fontstyle" for="photourl">Photo URL</label><br />
+                <label class="fontstyle" for="photoUrl">Photo URL</label><br />
                 <input
                   required
                   class="photo-url inputstyle"
                   type="url"
-                  id="photourl"
-                  name="photourl">
+                  id="photoUrl"
+                  name="photoUrl">
               </div>
             </div>
           </div>
@@ -72,7 +72,7 @@
           </div>
         </form>
       </div>
-      <div class="hidden" data-view="entries">
+      <div class="view hidden" data-view="entries">
         <div class="row space-between">
           <h1 class="h1placement">Entries</h1>
           <button class="button button-new" data-view="entries">NEW</button>
