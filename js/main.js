@@ -142,3 +142,37 @@ $ulEntries.addEventListener('click', function (event) {
     }
   }
 });
+
+// ----------------------------------------------------
+
+var modalValue = false;
+var $deleteButton = document.querySelector('.delete-button');
+var $cancelButton = document.querySelector('.cancel-button');
+var $confirmed = document.querySelector('.confirm-button');
+var $modalContainer = document.querySelector('.modal-container');
+
+function toggleModal() {
+  modalValue = !modalValue;
+  if (modalValue) {
+    $modalContainer.className = 'modal-container';
+  } else {
+    $modalContainer.className = 'modal-container hidden';
+  }
+}
+
+$deleteButton.addEventListener('click', function () {
+  toggleModal();
+});
+
+$cancelButton.addEventListener('click', function () {
+  toggleModal();
+});
+
+$confirmed.addEventListener('click', function (event) {
+  for (let i = 0; i < data.entries.length; i++) {
+    if (data.editing.entryId === data.entries[i].entryId) {
+      data.entries.splice(i, 1);
+      return;
+    }
+  }
+});
