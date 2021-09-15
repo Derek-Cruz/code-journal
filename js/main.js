@@ -143,7 +143,7 @@ $ulEntries.addEventListener('click', function (event) {
   }
 });
 
-// ----------------------------------------------------
+// -------------------testing something----------------------------
 
 var modalValue = false;
 var $deleteButton = document.querySelector('.delete-button');
