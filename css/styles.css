@@ -84,7 +84,7 @@ i {
   resize: none;
 }
 
-.button-save {
+.delete-save-container {
   display: flex;
   justify-content: space-between;
   margin-bottom: 25px;
@@ -94,9 +94,6 @@ i {
   display: flex;
   align-items: center;
   margin: auto 0;
-}
-
-.button {
   background-color: #562b81;
   color: white;
   border: none;
@@ -104,6 +101,18 @@ i {
   padding: 8px 20px;
   font-size: 1.3rem;
   cursor: pointer;
+}
+
+.button-save {
+  background-color: #562b81;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 20px;
+  font-size: 1.3rem;
+  cursor: pointer;
+  position: fixed;
+  right: 188px;
 }
 
 .space-between {

@@ -4,6 +4,10 @@ const $imageTag = document.querySelector('img');
 const $photoUrl = document.querySelector('.photo-url');
 const $entryForm = document.querySelector('.entries-form');
 const $h1 = document.querySelector('#page-header');
+const $deleteButton = document.querySelector('.delete-button');
+const $cancelButton = document.querySelector('.cancel-button');
+const $confirmed = document.querySelector('.confirm-button');
+const $modalContainer = document.querySelector('.modal-container');
 
 $photoUrl.addEventListener('input', function (event) {
   $imageTag.setAttribute('src', event.target.value);
@@ -101,6 +105,7 @@ function viewSwapping(view) {
   if (view === 'entry-form') {
     $entryFormView.setAttribute('class', '');
     $entriesView.setAttribute('class', 'hidden');
+    $deleteButton.classList.add('hidden');
 
     data.view = 'entry-form';
   } else if (view === 'entries') {
@@ -117,7 +122,7 @@ $aTag.addEventListener('click', function (event) {
 
 $newButton.addEventListener('click', function (event) {
   $h1.textContent = 'New Entry';
-  $deleteButton.classList = 'delete-button column-half hidden';
+  $deleteButton.classList.add('hidden');
   viewSwapping('entry-form');
 });
 
@@ -140,20 +145,14 @@ $ulEntries.addEventListener('click', function (event) {
       $entryForm.elements.notes.value = data.entries[entriesIndex].notes;
 
       data.editing = data.entries[entriesIndex];
-      $deleteButton.classList = 'delete-button column-half';
+      $deleteButton.classList.remove('hidden');
     }
   }
 });
 
-// -------------------testing something----------------------------
-
-var $deleteButton = document.querySelector('.delete-button');
-var $cancelButton = document.querySelector('.cancel-button');
-var $confirmed = document.querySelector('.confirm-button');
-var $modalContainer = document.querySelector('.modal-container');
-
 $deleteButton.addEventListener('click', function () {
   $modalContainer.classList = 'modal-container';
+  viewSwapping('entry-form');
 });
 
 $cancelButton.addEventListener('click', function () {
@@ -167,5 +166,4 @@ $confirmed.addEventListener('click', function (event) {
     data.entries[i - 1].entryID = i - 1;
   }
   $modalContainer.classList = 'modal-container hidden';
-  viewSwapping('entries');
 });
