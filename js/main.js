@@ -151,19 +151,19 @@ $ulEntries.addEventListener('click', function (event) {
 });
 
 $deleteButton.addEventListener('click', function () {
-  $modalContainer.classList = 'modal-container';
-  viewSwapping('entry-form');
+  $modalContainer.classList.remove('hidden');
 });
 
 $cancelButton.addEventListener('click', function () {
-  $modalContainer.classList = 'modal-container hidden';
+  $modalContainer.classList.add('hidden');
 });
 
 $confirmed.addEventListener('click', function (event) {
-  data.entries.splice(data.editing.entryID, 1);
-  data.nextEntryId--;
-  for (var i = data.nextEntryId; i > data.editing.entryID; i--) {
-    data.entries[i - 1].entryID = i - 1;
+  for (let i = 0; i < data.entries.length; i++) {
+    if (data.editing.entryId === data.entries[i].entryId) {
+      data.entries.splice(i, 1);
+      return;
+    }
   }
-  $modalContainer.classList = 'modal-container hidden';
+  $modalContainer.classList.add('hidden');
 });
