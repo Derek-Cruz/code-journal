@@ -165,5 +165,12 @@ $confirmed.addEventListener('click', function (event) {
       return;
     }
   }
+  $ulEntries.innerHTML = '';
+
+  for (var x = 0; x < data.entries.length; x++) {
+    $ulEntries.appendChild(entryMaker(data.entries[x]));
+  }
   $modalContainer.classList.add('hidden');
+  $entryFormView.reset();
+  viewSwapping('entries');
 });

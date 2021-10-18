@@ -111,12 +111,12 @@ i {
   cursor: pointer;
 }
 
-.testing1 {
+.delete-button-column-style {
   display: flex;
   padding: 0;
 }
 
-.testing2 {
+.button-save-column-style {
   display: flex;
   padding: 0;
   justify-content: flex-end;
